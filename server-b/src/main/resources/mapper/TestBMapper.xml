@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hand.fescar.demo.mapper.TestBMapper">
+
+    <resultMap type="com.hand.fescar.demo.model.TestB" id="baseMap">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="value" property="value"/>
+    </resultMap>
+
+    <select id="list" resultMap="baseMap">
+        select *
+        from t_test_b
+    </select>
+
+    <select id="selectOne" parameterType="java.lang.Long" resultMap="baseMap">
+        select *
+        from t_test_b
+        where id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.hand.fescar.demo.model.AddDTO">
+        insert into t_test_b(name, value)
+        values (#{name}, #{value})
+    </insert>
+</mapper>

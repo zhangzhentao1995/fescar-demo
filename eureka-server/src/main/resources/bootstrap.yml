@@ -1,0 +1,23 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    config:
+      enabled: false
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  server:
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 5000
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8301/eureka/
+security:
+  basic:
+    enabled: false

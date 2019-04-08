@@ -1,0 +1,18 @@
+server:
+  port: 8303
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    hostname: ${spring.cloud.client.ipAddress}
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 7
+  client:
+    service-url:
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://localhost:8301/eureka/}
+spring:
+  application:
+    name: server-b
+  cloud:
+    config:
+      enabled: false
